@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
         child: Text(
           "Trakt.tv api used in flutter",
           style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 14, color: Colors.white),
+              fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
         ),
       ),
     );
