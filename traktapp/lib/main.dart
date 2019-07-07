@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart'as http;
+import 'dart:convert';
+import 'dart:async';
+
 
 void main() => runApp(MaterialApp(
       home: MyApp(),
@@ -11,17 +15,25 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF2d3447),
-      body: Center(
-        child: Text(
-          "Trakt.tv api used in flutter",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
-        ),
-      ),
-    );
+      body: Container(),
+      
+      );
+        
+        
+      
+    
   }
 }
+
+movies() async {
+    final response = await http.get(
+        "https://api.trakt.tv/movies/popular?Content-Type=application/json&trakt-api-version=2&trakt-api-key=[da986893dbeb57da52760478c82af518b31d62425053c565845acc550f6430bf]");
+    var json = jsonDecode(response.body);
+    return json;
+  }
