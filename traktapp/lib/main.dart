@@ -64,11 +64,10 @@ class _MyAppState extends State<MyApp> {
 
 movies() async {
   final response =
-      await http.get("https://api.trakt.tv/movies/trending", headers: {
+      await http.get("https://api.trakt.tv/movies/popular", headers: {
     'Content-Type': 'application/json',
     'trakt-api-version': '2',
-    'trakt-api-key':
-        'da986893dbeb57da52760478c82af518b31d62425053c565845acc550f6430bf'
+    'trakt-api-key': 'da986893dbeb57da52760478c82af518b31d62425053c565845acc550f6430bf'
   });
   var json = Film.fromArray(jsonDecode(response.body));
   return json;
