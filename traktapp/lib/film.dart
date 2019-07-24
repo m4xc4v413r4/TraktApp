@@ -1,26 +1,17 @@
 class Film {
   final String title;
-  final int year;
-  Film( 
-    {
-      this.title,
-      this.year
-    }
-  );
-  factory Film.fromJson(Map<String,dynamic> json)
-  {
+  final int tmdb;
+  Film({this.title, this.tmdb});
+  factory Film.fromJson(Map<String, dynamic> json) {
     return Film(
       title: json['title'],
-      year: json['year'],
+      tmdb: json['ids']['tmdb'],
     );
   }
-  static List<Film> fromArray(var jsonArray)
-  {
+  static List<Film> fromArray(var jsonArray) {
     List<Film> gelenFilmler = List<Film>();
-    if(jsonArray != null)
-    {
-      for (Map<String, dynamic> json in jsonArray)
-      {
+    if (jsonArray != null) {
+      for (Map<String, dynamic> json in jsonArray) {
         gelenFilmler.add(Film.fromJson(json));
       }
     }
